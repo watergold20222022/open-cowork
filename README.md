@@ -1,4 +1,4 @@
-# Kimi CLI
+# Kimi CLI & Kimi Cowork
 
 [![Commit Activity](https://img.shields.io/github/commit-activity/w/MoonshotAI/kimi-cli)](https://github.com/MoonshotAI/kimi-cli/graphs/commit-activity)
 [![Checks](https://img.shields.io/github/check-runs/MoonshotAI/kimi-cli/main)](https://github.com/MoonshotAI/kimi-cli/actions)
@@ -10,16 +10,53 @@
 
 Kimi CLI is an AI agent that runs in the terminal, helping you complete software development tasks and terminal operations. It can read and edit code, execute shell commands, search and fetch web pages, and autonomously plan and adjust actions during execution.
 
+**Kimi Cowork** is a Windows desktop application built on top of Kimi CLI, providing a graphical interface similar to Claude Cowork. It allows you to work with folders through a desktop UI, manage multiple projects, and delegate tasks to the AI agent without needing to use the terminal.
+
 > [!IMPORTANT]
-> Kimi CLI is currently in technical preview.
+> Kimi CLI is currently in technical preview. Kimi Cowork (Windows Desktop App) is under active development.
 
 ## Getting Started
 
+### Kimi CLI (Terminal)
+
 See [Getting Started](https://moonshotai.github.io/kimi-cli/en/guides/getting-started.html) for how to install and start using Kimi CLI.
+
+### Kimi Cowork (Windows Desktop)
+
+> [!NOTE]
+> Kimi Cowork for Windows is currently under development. Check back soon for installation instructions.
+
+Kimi Cowork provides a desktop application experience for Windows users:
+- **Folder-based workflows**: Point the app at specific directories for AI-assisted work
+- **Graphical interface**: No terminal required - interact through a familiar desktop UI
+- **Project management**: Manage multiple workspace folders and sessions
+- **Background execution**: Delegate tasks and continue working while the AI processes in the background
+- **Built on Kimi CLI**: Leverages the same powerful agent architecture with a user-friendly interface
 
 ## Key Features
 
-### Shell command mode
+### Kimi Cowork (Windows Desktop App)
+
+**Desktop folder access**: Work with specific folders on your computer through a graphical interface. The AI agent can:
+- Read and organize files within authorized folders
+- Create and modify documents, spreadsheets, and code files
+- Execute multi-step workflows across your file system
+- Manage projects with visual task tracking
+
+**Orchestration UI**: See the AI's work progress in real-time:
+- View active steps and tool usage
+- Track sub-agent spawning and parallel task execution
+- Monitor file changes and command outputs
+- Approve or reject actions through dialog prompts
+
+**Session management**: 
+- Create and switch between multiple workspace sessions
+- Resume previous work automatically
+- Keep work isolated per project folder
+
+### Kimi CLI (Terminal)
+
+#### Shell command mode
 
 Kimi CLI is not only a coding agent, but also a shell. You can switch the shell command mode by pressing `Ctrl-X`. In this mode, you can directly run shell commands without leaving Kimi CLI.
 
@@ -139,6 +176,8 @@ See more features in the [Documentation](https://moonshotai.github.io/kimi-cli/e
 
 ## Development
 
+### Kimi CLI Development
+
 To develop Kimi CLI, run:
 
 ```sh
@@ -165,6 +204,17 @@ make build  # build python packages
 make build-bin  # build standalone binary
 make help  # show all make targets
 ```
+
+### Kimi Cowork (Windows Desktop) Development
+
+> [!NOTE]
+> Development setup for Kimi Cowork Windows Desktop App coming soon.
+
+The Windows desktop application is built using:
+- **Backend**: Kimi CLI agent architecture (Python)
+- **Frontend**: Modern Windows UI framework (TBD: WPF/WinUI/Electron)
+- **IPC**: Communication layer between GUI and agent backend
+- **Packaging**: Standalone Windows installer with embedded Python runtime
 
 ## Contributing
 
