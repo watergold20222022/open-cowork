@@ -1,43 +1,37 @@
-# Kimi CLI & Kimi Cowork
+# Open Cowork
 
-[![Commit Activity](https://img.shields.io/github/commit-activity/w/MoonshotAI/kimi-cli)](https://github.com/MoonshotAI/kimi-cli/graphs/commit-activity)
-[![Checks](https://img.shields.io/github/check-runs/MoonshotAI/kimi-cli/main)](https://github.com/MoonshotAI/kimi-cli/actions)
-[![Version](https://img.shields.io/pypi/v/kimi-cli)](https://pypi.org/project/kimi-cli/)
-[![Downloads](https://img.shields.io/pypi/dw/kimi-cli)](https://pypistats.org/packages/kimi-cli)
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/MoonshotAI/kimi-cli)
+> **Forked from [Kimi CLI](https://github.com/MoonshotAI/kimi-cli)** - A Windows desktop application similar to Claude Cowork
 
-[Kimi Code](https://www.kimi.com/code/) | [Documentation](https://moonshotai.github.io/kimi-cli/en/) | [文档](https://moonshotai.github.io/kimi-cli/zh/)
+**Open Cowork** is an AI-powered desktop application for Windows that brings Claude Cowork-like functionality to your local machine. Built on the foundation of Kimi CLI, it provides a graphical interface for AI-assisted coding and file management without requiring terminal knowledge.
 
-Kimi CLI is an AI agent that runs in the terminal, helping you complete software development tasks and terminal operations. It can read and edit code, execute shell commands, search and fetch web pages, and autonomously plan and adjust actions during execution.
+## About This Project
 
-**Kimi Cowork** is a Windows desktop application built on top of Kimi CLI, providing a graphical interface similar to Claude Cowork. It allows you to work with folders through a desktop UI, manage multiple projects, and delegate tasks to the AI agent without needing to use the terminal.
+This project is forked from the excellent [Kimi CLI](https://github.com/MoonshotAI/kimi-cli) by Moonshot AI. While Kimi CLI focuses on terminal-based workflows, Open Cowork transforms it into a desktop application with:
+- **Windows-native desktop UI** - No terminal required
+- **Folder-based workspace management** - Point and click to authorize folders
+- **Visual task orchestration** - See the AI's work progress in real-time
+- **Similar to Claude Cowork** - Familiar workflow for desktop users
 
 > [!IMPORTANT]
-> Kimi CLI is currently in technical preview. Kimi Cowork (Windows Desktop App) is under active development.
+> Open Cowork is under active development. This is an independent fork and is not officially affiliated with Moonshot AI or the original Kimi CLI project.
 
 ## Getting Started
 
-### Kimi CLI (Terminal)
-
-See [Getting Started](https://moonshotai.github.io/kimi-cli/en/guides/getting-started.html) for how to install and start using Kimi CLI.
-
-### Kimi Cowork (Windows Desktop)
-
 > [!NOTE]
-> Kimi Cowork for Windows is currently under development. Check back soon for installation instructions.
+> Open Cowork for Windows is currently under development. Check back soon for installation instructions.
 
-Kimi Cowork provides a desktop application experience for Windows users:
+**Planned Features:**
 - **Folder-based workflows**: Point the app at specific directories for AI-assisted work
 - **Graphical interface**: No terminal required - interact through a familiar desktop UI
 - **Project management**: Manage multiple workspace folders and sessions
-- **Background execution**: Delegate tasks and continue working while the AI processes in the background
-- **Built on Kimi CLI**: Leverages the same powerful agent architecture with a user-friendly interface
+- **Background execution**: Delegate tasks and continue working while the AI processes
+- **Built on proven technology**: Leverages Kimi CLI's powerful agent architecture
 
-## Key Features
+## Key Features (Planned)
 
-### Kimi Cowork (Windows Desktop App)
+### Desktop Application
 
-**Desktop folder access**: Work with specific folders on your computer through a graphical interface. The AI agent can:
+**Folder access with visual interface**: Work with specific folders on your computer through a graphical interface. The AI agent can:
 - Read and organize files within authorized folders
 - Create and modify documents, spreadsheets, and code files
 - Execute multi-step workflows across your file system
@@ -54,168 +48,88 @@ Kimi Cowork provides a desktop application experience for Windows users:
 - Resume previous work automatically
 - Keep work isolated per project folder
 
-### Kimi CLI (Terminal)
+## Technical Background
 
-#### Shell command mode
+Open Cowork is built on the Kimi CLI agent architecture, which provides:
+- **Multi-provider LLM support**: Works with OpenAI, Anthropic, Google, and other providers
+- **Powerful tooling system**: File operations, shell commands, web scraping, and MCP integration
+- **Subagent architecture**: Parallel task execution with isolated contexts
+- **Context management**: Automatic compaction and session persistence
 
-Kimi CLI is not only a coding agent, but also a shell. You can switch the shell command mode by pressing `Ctrl-X`. In this mode, you can directly run shell commands without leaving Kimi CLI.
-
-![](./docs/media/shell-mode.gif)
-
-> [!NOTE]
-> Built-in shell commands like `cd` are not supported yet.
-
-### IDE integration via ACP
-
-Kimi CLI supports [Agent Client Protocol] out of the box. You can use it together with any ACP-compatible editor or IDE.
-
-[Agent Client Protocol]: https://github.com/agentclientprotocol/agent-client-protocol
-
-To use Kimi CLI with ACP clients, make sure to run Kimi CLI in the terminal and send `/setup` to complete the setup first. Then, you can configure your ACP client to start Kimi CLI as an ACP agent server with command `kimi acp`.
-
-For example, to use Kimi CLI with [Zed](https://zed.dev/) or [JetBrains](https://blog.jetbrains.com/ai/2025/12/bring-your-own-ai-agent-to-jetbrains-ides/), add the following configuration to your `~/.config/zed/settings.json` or `~/.jetbrains/acp.json` file:
-
-```json
-{
-  "agent_servers": {
-    "Kimi CLI": {
-      "command": "kimi",
-      "args": ["acp"],
-      "env": {}
-    }
-  }
-}
-```
-
-Then you can create Kimi CLI threads in IDE's agent panel.
-
-![](./docs/media/acp-integration.gif)
-
-### Zsh integration
-
-You can use Kimi CLI together with Zsh, to empower your shell experience with AI agent capabilities.
-
-Install the [zsh-kimi-cli](https://github.com/MoonshotAI/zsh-kimi-cli) plugin via:
-
-```sh
-git clone https://github.com/MoonshotAI/zsh-kimi-cli.git \
-  ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/kimi-cli
-```
-
-> [!NOTE]
-> If you are using a plugin manager other than Oh My Zsh, you may need to refer to the plugin's README for installation instructions.
-
-Then add `kimi-cli` to your Zsh plugin list in `~/.zshrc`:
-
-```sh
-plugins=(... kimi-cli)
-```
-
-After restarting Zsh, you can switch to agent mode by pressing `Ctrl-X`.
-
-### MCP support
-
-Kimi CLI supports MCP (Model Context Protocol) tools.
-
-**`kimi mcp` sub-command group**
-
-You can manage MCP servers with `kimi mcp` sub-command group. For example:
-
-```sh
-# Add streamable HTTP server:
-kimi mcp add --transport http context7 https://mcp.context7.com/mcp --header "CONTEXT7_API_KEY: ctx7sk-your-key"
-
-# Add streamable HTTP server with OAuth authorization:
-kimi mcp add --transport http --auth oauth linear https://mcp.linear.app/mcp
-
-# Add stdio server:
-kimi mcp add --transport stdio chrome-devtools -- npx chrome-devtools-mcp@latest
-
-# List added MCP servers:
-kimi mcp list
-
-# Remove an MCP server:
-kimi mcp remove chrome-devtools
-
-# Authorize an MCP server:
-kimi mcp auth linear
-```
-
-**Ad-hoc MCP configuration**
-
-Kimi CLI also supports ad-hoc MCP server configuration via CLI option.
-
-Given an MCP config file in the well-known MCP config format like the following:
-
-```json
-{
-  "mcpServers": {
-    "context7": {
-      "url": "https://mcp.context7.com/mcp",
-      "headers": {
-        "CONTEXT7_API_KEY": "YOUR_API_KEY"
-      }
-    },
-    "chrome-devtools": {
-      "command": "npx",
-      "args": ["-y", "chrome-devtools-mcp@latest"]
-    }
-  }
-}
-```
-
-Run `kimi` with `--mcp-config-file` option to connect to the specified MCP servers:
-
-```sh
-kimi --mcp-config-file /path/to/mcp.json
-```
-
-### More
-
-See more features in the [Documentation](https://moonshotai.github.io/kimi-cli/en/).
+For technical details about the underlying agent system, see the [original Kimi CLI documentation](https://moonshotai.github.io/kimi-cli/en/).
 
 ## Development
 
-### Kimi CLI Development
-
-To develop Kimi CLI, run:
-
-```sh
-git clone https://github.com/MoonshotAI/kimi-cli.git
-cd kimi-cli
-
-make prepare  # prepare the development environment
-```
-
-Then you can start working on Kimi CLI.
-
-Refer to the following commands after you make changes:
-
-```sh
-uv run kimi  # run Kimi CLI
-
-make format  # format code
-make check  # run linting and type checking
-make test  # run tests
-make test-kimi-cli  # run Kimi CLI tests only
-make test-kosong  # run kosong tests only
-make test-pykaos  # run pykaos tests only
-make build  # build python packages
-make build-bin  # build standalone binary
-make help  # show all make targets
-```
-
-### Kimi Cowork (Windows Desktop) Development
+### Open Cowork Desktop Development
 
 > [!NOTE]
-> Development setup for Kimi Cowork Windows Desktop App coming soon.
+> Development setup for Open Cowork Windows Desktop App is in progress.
 
-The Windows desktop application is built using:
+**Technology Stack (Planned):**
 - **Backend**: Kimi CLI agent architecture (Python)
-- **Frontend**: Modern Windows UI framework (TBD: WPF/WinUI/Electron)
+- **Frontend**: Modern Windows UI framework (evaluating WPF/WinUI 3/Electron)
 - **IPC**: Communication layer between GUI and agent backend
 - **Packaging**: Standalone Windows installer with embedded Python runtime
 
+**Development Roadmap:**
+1. ✅ Fork Kimi CLI codebase
+2. 🔄 Design Windows desktop UI mockups
+3. 📋 Implement GUI framework integration
+4. 📋 Build IPC bridge between UI and Python backend
+5. 📋 Package as standalone Windows installer
+6. 📋 Add Windows-specific features (system tray, file explorer integration)
+
+### CLI Backend Development
+
+The CLI backend is based on Kimi CLI. To develop or test the CLI:
+
+```sh
+git clone https://github.com/watergold20222022/open-cowork.git
+cd open-cowork
+
+# Install uv if not already installed
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Prepare development environment (requires make)
+make prepare
+
+# Or manually with uv
+uv sync --frozen --all-extras --all-packages
+```
+
+Then you can work with the CLI backend:
+
+```sh
+uv run kimi  # run the CLI agent
+
+make format  # format code (or: uv run ruff format)
+make check   # run linting and type checking
+make test    # run tests
+make build   # build python packages
+```
+
 ## Contributing
 
-We welcome contributions to Kimi CLI! Please refer to [CONTRIBUTING.md](./CONTRIBUTING.md) for more information.
+We welcome contributions to Open Cowork! This project aims to bring AI-assisted coding to Windows desktop users.
+
+**Areas where we need help:**
+- Windows UI/UX design
+- Desktop application development (WPF/WinUI/Electron)
+- Python-to-GUI IPC integration
+- Windows installer packaging
+- Testing on various Windows versions
+
+Please open an issue to discuss your ideas before submitting a pull request.
+
+## Credits
+
+This project is forked from [Kimi CLI](https://github.com/MoonshotAI/kimi-cli) by Moonshot AI. We're grateful for their excellent work on the agent architecture and tooling system.
+
+**Original Kimi CLI:**
+- Repository: https://github.com/MoonshotAI/kimi-cli
+- Documentation: https://moonshotai.github.io/kimi-cli/en/
+- License: See [LICENSE](./LICENSE) file
+
+## License
+
+This project maintains the same license as the original Kimi CLI. See [LICENSE](./LICENSE) for details.
